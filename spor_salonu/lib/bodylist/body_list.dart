@@ -19,6 +19,7 @@ class BodyList extends StatelessWidget {
           },
           itemCount: allBody.length,
         ),
+      
       ),
     );
   }

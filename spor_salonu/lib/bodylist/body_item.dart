@@ -1,5 +1,9 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
+import 'package:spor_salonu/constants.dart';
 import 'package:spor_salonu/model/egzersiz.dart';
+import 'package:spor_salonu/view/register.dart';
 
 class BodyItem extends StatelessWidget {
   final Fitness listBody;
@@ -8,25 +12,78 @@ class BodyItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var myTextStyle = Theme.of(context).textTheme;
-    return Padding(
-      padding: const EdgeInsets.all(4.0),
-      child: Card(
-        elevation: 4,
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: ListTile(
-            onTap: () {},
-            leading: Image.asset(
-              'images/' + listBody.bodyKucukResim,
-              width: 64,
-              height: 64,
+    Size size = MediaQuery.of(context).size;
+    return SafeArea(
+      child: InkWell(
+        onTap: () { },
+        child: Stack(
+          children: <Widget>[
+            Container(
+              margin: const EdgeInsets.only(top: 70),
+              decoration: const BoxDecoration(
+                color: kBackgroundColor,
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(40),
+                  topRight: Radius.circular(40),
+                ),
+              ),
             ),
-            title: Text(
-              listBody.egzersizAdi,
-              style: myTextStyle.headline5,
+            Container(
+              margin: const EdgeInsets.symmetric(
+                horizontal: kDefaultPadding,
+                vertical: kDefaultPadding / 2,
+              ),
+              // color: Colors.blueAccent,
+              height: 160,
+              child: Stack(
+                children: <Widget>[
+                  Container(
+                    height: 136,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(22),
+                      color: kBlueColor,
+                      boxShadow: const [kDefaultShadow],
+                    ),
+                    child: Container(
+                      margin: const EdgeInsets.only(right: 5),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(22),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
-            trailing: const Icon(Icons.arrow_forward_ios),
-          ),
+            Positioned(
+              top: 0,
+              right: 20,
+              child: Container(
+                padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
+                height: 160,
+                width: 200,
+                child: Image.asset(
+                  'images/' + listBody.bodyKucukResim,
+                ),
+              ),
+            ),
+            Positioned(
+              bottom: 0,
+              left: -10,
+              child: SizedBox(
+                height: 136,
+                width: size.width - 100,
+                child: Column(
+                  children: <Widget>[
+                    Text(
+                      listBody.egzersizAdi,
+                      style: myTextStyle.headline5,
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ],
         ),
       ),
     );
