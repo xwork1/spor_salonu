@@ -12,9 +12,6 @@ class BodyList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('EGZERSİZLERİM'),
-      ),
       body: Center(
         child: ListView.builder(
           itemBuilder: (context, index) {
