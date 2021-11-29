@@ -156,7 +156,7 @@ class _RegisterPageState extends State<RegisterPage> {
         child: SingleChildScrollView(child: Container(
           color: Colors.white,
           child: Padding(
-            padding: const EdgeInsets.zall(36.0),
+            padding: const EdgeInsets.all(36.0),
             child: Form(
               key: _formkey,
               child: Column(
