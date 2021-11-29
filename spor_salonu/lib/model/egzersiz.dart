@@ -4,6 +4,6 @@ class Fitness {
 
   Fitness(this._egzersizAdi, this._egzersizImages);
 
-  get egzersizAdi => this._egzersizAdi;
-  get bodyKucukResim => this._egzersizImages;
+  get egzersizAdi => _egzersizAdi;
+  get bodyKucukResim => _egzersizImages;
 }
