@@ -14,11 +14,7 @@ List<dynamic> datalist = [
   ['Omuz', 'omuz.png', 'Salı'],
   ['Sırt-Kanat', 'sirt.png', 'Çarşamba'],
   ['Üst (önkol)', 'biceps.png', 'Perşembe'],
-  [
-    'Bacak',
-    'bacak.png',
-    'Cuma',
-  ],
+  ['Bacak', 'bacak.png', 'Cuma'],
   ['ABS', 'karin.png', 'Cumartesi'],
 ];
 
@@ -51,6 +47,7 @@ class _FirstPageState extends State<FirstPage> {
                       ],
                     ),
                     Expanded(
+                      flex: 2,
                       child: ListView.builder(
                         padding: const EdgeInsets.only(top: 20),
                         physics: const NeverScrollableScrollPhysics(),
@@ -107,13 +104,84 @@ class _FirstPageState extends State<FirstPage> {
                                       ],
                                     ),
                                   ),
+                                  const Icon(Icons.arrow_forward_ios),
                                 ],
                               ),
                             ),
                           );
                         },
                       ),
-                    )
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    Expanded(
+                      child: Container(
+                        margin: const EdgeInsets.only(
+                            bottom: 5, left: 32, right: 32),
+                        decoration: const BoxDecoration(
+                          borderRadius: BorderRadius.all(Radius.circular(30)),
+                          gradient: LinearGradient(colors: [
+                            Color(0xff161B22),
+                            Color(0xff161B22),
+                          ]),
+                        ),
+                        child: Column(
+                          children: <Widget>[
+                            const SizedBox(height: 20),
+                            const Text(
+                              "EGZERSİZLERİM",
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 20),
+                            ),
+                            Expanded(
+                              child: Row(
+                                children: <Widget>[
+                                  Container(
+                                    decoration: const BoxDecoration(
+                                        color: Color(0xFF5B4D9D),
+                                        borderRadius: BorderRadius.all(
+                                            Radius.circular(25))),
+                                    padding: const EdgeInsets.all(5),
+                                    child: Image.asset("images/chest.png",
+                                        width: 50,
+                                        height: 50,
+                                        color: Colors.white),
+                                  ),
+                                  const SizedBox(
+                                    width: 10,
+                                  ),
+                                  Container(
+                                    decoration: const BoxDecoration(
+                                        color: Color(0xFF5B4D9D),
+                                        borderRadius: BorderRadius.all(
+                                            Radius.circular(25))),
+                                    padding: const EdgeInsets.all(5),
+                                    child: Image.asset("images/back.png",
+                                        color: Colors.white,
+                                        width: 50,
+                                        height: 50),
+                                  ),
+                                  const SizedBox(width: 10),
+                                  Container(
+                                    decoration: const BoxDecoration(
+                                        color: Color(0xFF5B4D9D),
+                                        borderRadius: BorderRadius.all(
+                                            Radius.circular(25))),
+                                    padding: const EdgeInsets.all(5),
+                                    child: Image.asset("images/bicepss.png",
+                                        color: Colors.white,
+                                        width: 50,
+                                        height: 50),
+                                  ),
+                                  const SizedBox(width: 10),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
                   ],
                 ),
               ),
