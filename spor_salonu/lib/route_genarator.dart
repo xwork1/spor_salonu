@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:spor_salonu/view/main_screen.dart';
+import 'package:spor_salonu/nav_bar.dart';
 import 'package:spor_salonu/view/loginscreen.dart';
 
 class RouteGenarator {

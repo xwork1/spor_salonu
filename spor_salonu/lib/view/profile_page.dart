@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+import 'package:intl/date_symbol_data_local.dart';
 
 class ProfilPage extends StatelessWidget {
   const ProfilPage({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
-
+    final today = DateTime.now();
+    initializeDateFormatting('tr');
     return Scaffold(
       backgroundColor: const Color(0xFFE9E9E9),
       body: Stack(
@@ -24,17 +27,17 @@ class ProfilPage extends StatelessWidget {
                 padding: const EdgeInsets.only(
                     top: 50, left: 32, right: 16, bottom: 10),
                 child: Column(
-                  children: const <Widget>[
+                  children:  <Widget>[
                     ListTile(
-                      title: Text(
-                        "Date, Year",
+                      title: const Text(
+                        "Merhaba, Users",
                         style: TextStyle(
                           fontWeight: FontWeight.w400,
-                          fontSize: 14,
+                          fontSize: 18,
                         ),
                       ),
-                      subtitle: Text("Merhaba, Users"),
-                      trailing: Icon(Icons.person,size: 60,), //image eklersen consttan çıkar
+                      subtitle: Text("${DateFormat("M/d/y").format(today)}, ${DateFormat("EEEE").format(today)}"),
+                      trailing: const Icon(Icons.person,size: 60,), //image eklersen consttan çıkar
                     ),
                   ],
                 ),

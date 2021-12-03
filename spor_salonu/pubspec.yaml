@@ -30,7 +30,7 @@ dependencies:
   flutter:
     sdk: flutter
   salomon_bottom_bar: ^3.1.0
-  animate_do: ^2.0.0
+  intl: ^0.17.0
  
  
 
