@@ -31,9 +31,12 @@ dependencies:
     sdk: flutter
   salomon_bottom_bar: ^3.1.0
   intl: ^0.17.0
- 
- 
-
+  pedometer: ^3.0.0
+  font_awesome_flutter: ^9.2.0
+  decimal: 
+  percent_indicator: ^3.4.0
+  flutter_launcher_icons:
+  animations: 
 dev_dependencies:
   flutter_test:
     sdk: flutter

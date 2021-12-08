@@ -35,7 +35,7 @@ class WorkoutScreen extends StatelessWidget {
               ),
               ListTile(
                 title: Text(
-                  "${DateFormat("EEEE").format(today)},${DateFormat("d MMMM").format(today)} ",
+                  "${DateFormat.MMMd('tr_TR').format(today)}, ${DateFormat.EEEE('tr_TR').format(today)}",
                   style: const TextStyle(
                     fontWeight: FontWeight.w400,
                     fontSize: 18,

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:spor_salonu/nav_bar.dart';
-import 'package:spor_salonu/view/loginscreen.dart';
+import 'package:spor_salonu/screen/loginscreen.dart';
 
 class RouteGenarator {
   static Route<dynamic>? routeGenarator(RouteSettings settings) {
