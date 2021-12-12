@@ -2,6 +2,9 @@
 
 +Egzersiz detayları eklendi.
 +Profil sayfası eklendi.
++Adımsayar eklendi dinamik yapıda düzenlendi.
++İstatistik sayfası eklendi. -Düzenlenecek.
 
--Ana sayfaya profil ve istatistik atanacak.
--İstatistik sayfası yapılacak.
+-Adımsayar kcal ve km hesaplanması yapılacak.
+-İstatistik kısmına admin yetkisi++
+-Admin panel yapılacak
