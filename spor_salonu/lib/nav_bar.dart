@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:spor_salonu/screen/home_screen.dart';
-import 'package:spor_salonu/screen/profile_page.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
+import 'package:spor_salonu/screen/profile_page.dart';
+import 'package:spor_salonu/adim_sayar.dart';
+import 'package:spor_salonu/screen/statisctic.dart';
 import 'package:spor_salonu/test/test.dart';
-import 'package:spor_salonu/test/testprofpage.dart';
-import 'package:spor_salonu/screen/work_out.dart';
+import 'package:spor_salonu/screen/work_out_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -18,8 +19,8 @@ class _HomeScreenState extends State<HomeScreen> {
   List<Widget> pageList = <Widget>[
     const FirstPage(),
     const WorkoutScreen(),
-    const Pedometre(),
-    const ProfileScreen(),
+    const Statistic(),
+    const ProfilPage(),
   ];
 
   @override

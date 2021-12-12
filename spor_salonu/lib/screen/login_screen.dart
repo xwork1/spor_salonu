@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:spor_salonu/screen/register.dart';
+import 'package:spor_salonu/screen/register_screen.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -9,9 +9,10 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  
   //form key
   final _formkey = GlobalKey<FormState>();
-
+  
   //kontroller düzenleme
   final TextEditingController _telNumController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();

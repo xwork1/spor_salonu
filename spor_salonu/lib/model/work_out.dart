@@ -26,17 +26,17 @@ final upperBody = [
     UpperBodyWorkout(
       imagePath: "images/back.png",
       name: "Pull ups",
-      instruction: "2 sets - 8 tekrar",
+      instruction: "2 set - 8 tekrar",
     ),
     UpperBodyWorkout(
       imagePath: "images/back.png",
       name: "Deadlift",
-      instruction: "2 sets - 4 tekrar",
+      instruction: "2 set - 4 tekrar",
     ),
     UpperBodyWorkout(
       imagePath: "images/back.png",
       name: "Lat pulldown",
-      instruction: "4 sets - 6 tekrar",
+      instruction: "4 set - 6 tekrar",
     ),
   ],
   [

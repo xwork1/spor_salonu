@@ -21,7 +21,7 @@ class _RegisterPageState extends State<RegisterPage> {
 
   @override
   Widget build(BuildContext context) {
-    //name-surname field
+    //ad-soyad field
     final nameSurnameField = TextFormField(
       autofocus: false,
       controller: nameSurnameController,

@@ -100,7 +100,7 @@ class _PedometreState extends State<Pedometre> {
                   "Km",
                   style: TextStyle(fontSize: 12.0),
                 ),
-                trailing: Icon(Icons.camera_rounded),
+                trailing: const Icon(Icons.camera_rounded),
                 linearStrokeCap: LinearStrokeCap.roundAll,
                 backgroundColor: Colors.grey,
                 progressColor: Colors.blue,

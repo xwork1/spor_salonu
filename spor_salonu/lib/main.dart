@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:spor_salonu/route_genarator.dart';
 
@@ -20,3 +19,4 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+ 
