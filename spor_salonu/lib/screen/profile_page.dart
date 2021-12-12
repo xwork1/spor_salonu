@@ -14,7 +14,6 @@ class _ProfilPageState extends State<ProfilPage> {
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
-    final width = MediaQuery.of(context).size.width;
     final today = DateTime.now();
     return Material(
       child: Scaffold(
@@ -34,23 +33,22 @@ class _ProfilPageState extends State<ProfilPage> {
     );
   }
 }
+
 // ignore: camel_case_types
 class getProfiles extends StatefulWidget {
   const getProfiles({Key? key, required this.today}) : super(key: key);
 
   final DateTime today;
-  
+
   @override
   State<getProfiles> createState() => _getProfilesState();
-  
 }
 
+// ignore: camel_case_types
 class _getProfilesState extends State<getProfiles> {
-
   @override
   Widget build(BuildContext context) {
- initializeDateFormatting('tr_TR');
-    final width = MediaQuery.of(context).size.width;
+    initializeDateFormatting('tr_TR');
     return ClipRRect(
       borderRadius: const BorderRadius.vertical(
         bottom: Radius.circular(40),
@@ -90,4 +88,3 @@ class _getProfilesState extends State<getProfiles> {
     );
   }
 }
-

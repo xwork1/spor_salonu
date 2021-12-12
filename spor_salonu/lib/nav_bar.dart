@@ -2,9 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:spor_salonu/screen/home_screen.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 import 'package:spor_salonu/screen/profile_page.dart';
-import 'package:spor_salonu/adim_sayar.dart';
 import 'package:spor_salonu/screen/statisctic.dart';
-import 'package:spor_salonu/test/test.dart';
 import 'package:spor_salonu/screen/work_out_screen.dart';
 
 class HomeScreen extends StatefulWidget {
