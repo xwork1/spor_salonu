@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:spor_salonu/screen/home_screen.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 import 'package:spor_salonu/screen/profile_page.dart';
-import 'package:spor_salonu/screen/statisctic.dart';
+import 'package:spor_salonu/screen/istatistik/page/statisctic.dart';
 import 'package:spor_salonu/screen/work_out_screen.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -17,7 +17,7 @@ class _HomeScreenState extends State<HomeScreen> {
   List<Widget> pageList = <Widget>[
     const FirstPage(),
     const WorkoutScreen(),
-    const Statistic(),
+    Statistic(),
     const ProfilPage(),
   ];
 

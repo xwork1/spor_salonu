@@ -1,4 +1,7 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:spor_salonu/nav_bar.dart';
 import 'package:spor_salonu/screen/register_screen.dart';
 
 class LoginPage extends StatefulWidget {
@@ -9,35 +12,43 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  
   //form key
-  final _formkey = GlobalKey<FormState>();
-  
+  final _formKey = GlobalKey<FormState>();
+
   //kontroller düzenleme
-  final TextEditingController _telNumController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+  //firebase
+  final _auth = FirebaseAuth.instance;
 
   @override
   Widget build(BuildContext context) {
-    
     //telnum field
-    final telNumField = TextFormField(
-      
+    final emailField = TextFormField(
       autofocus: false,
-      controller: _telNumController,
-      keyboardType: TextInputType.phone,
+      controller: _emailController,
+      keyboardType: TextInputType.emailAddress,
+      validator: (value) {
+        if (value!.isEmpty) {
+          return ("Lütfen Email adresini girin");
+        }
+        if (!RegExp("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+.[a-z]").hasMatch(value)) {
+          return ("Geçerli bir mail adresi giriniz");
+        }
+        return null;
+      },
       onSaved: (value) {
-        _telNumController.text = value!;
+        _emailController.text = value!;
       },
       textInputAction: TextInputAction.next,
       decoration: InputDecoration(
         suffixIcon: IconButton(
-      onPressed: _telNumController.clear,
-      icon: const Icon(Icons.clear),
-    ),
-        prefixIcon: const Icon(Icons.phone_android),
+          onPressed: _emailController.clear,
+          icon: const Icon(Icons.clear),
+        ),
+        prefixIcon: const Icon(Icons.mail),
         contentPadding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
-        hintText: "Tel No",
+        hintText: "E-mail",
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10),
         ),
@@ -50,8 +61,15 @@ class _LoginPageState extends State<LoginPage> {
       controller: _passwordController,
       keyboardType: TextInputType.text,
       obscureText: true,
-
-      //validator: () {},
+      validator: (value) {
+        RegExp regex = RegExp(r'^.{6,}$');
+        if (value!.isEmpty) {
+          return ("Giriş için şifre gerekli");
+        }
+        if (!regex.hasMatch(value)) {
+          return ("Lütfen geçerli şifre girin(Min 6 karakter)");
+        }
+      },
       onSaved: (value) {
         _passwordController.text = value!;
       },
@@ -75,7 +93,7 @@ class _LoginPageState extends State<LoginPage> {
         padding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
         minWidth: MediaQuery.of(context).size.width,
         onPressed: () {
-          Navigator.pushNamed(context, '/homescreen');
+          sigIn(_emailController.text, _passwordController.text);
         },
         child: const Text(
           "Giriş Yap",
@@ -98,7 +116,7 @@ class _LoginPageState extends State<LoginPage> {
             child: Padding(
               padding: const EdgeInsets.all(36.0),
               child: Form(
-                key: _formkey,
+                key: _formKey,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -109,7 +127,7 @@ class _LoginPageState extends State<LoginPage> {
                           fit: BoxFit.contain),
                     ),
                     const SizedBox(height: 10),
-                    telNumField,
+                    emailField,
                     const SizedBox(height: 15),
                     passwordField,
                     const SizedBox(height: 35),
@@ -145,5 +163,20 @@ class _LoginPageState extends State<LoginPage> {
         ),
       ),
     );
+  }
+
+  void sigIn(String email, String password) async {
+    if (_formKey.currentState!.validate()) {
+      await _auth
+          .signInWithEmailAndPassword(email: email, password: password)
+          .then((uid) => {
+                Fluttertoast.showToast(msg: "Giriş Başarılı"),
+                Navigator.of(context).pushReplacement(
+                    MaterialPageRoute(builder: (context) => const HomeScreen()))
+              })
+          .catchError((e) {
+        Fluttertoast.showToast(msg: e!.message);
+      });
+    }
   }
 }

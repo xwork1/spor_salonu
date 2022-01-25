@@ -61,7 +61,7 @@ class _getProfilesState extends State<getProfiles> {
           children: <Widget>[
             ListTile(
               title: const Text(
-                "Merhaba, Users",
+                "Merhaba, User",
                 style: TextStyle(
                   color: Colors.black,
                   fontWeight: FontWeight.w800,

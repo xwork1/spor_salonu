@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "311803024349",
+    "project_id": "spor-salonu-eee69",
+    "storage_bucket": "spor-salonu-eee69.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:311803024349:android:ae6790a5a667ab258c1c34",
+        "android_client_info": {
+          "package_name": "com.example.spor_salonu"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "311803024349-o1htao54j6lfp6rqbcu42l22k8r0aba0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.spor_salonu",
+            "certificate_hash": "978b06c90444dffaac2823cc6bbaa0ffd15f3872"
+          }
+        },
+        {
+          "client_id": "311803024349-3p2m4d9f3lb24lcgepq6e89uc1rhpcd1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBaIf3LVqvP_8sC0w8LYXOlCXywviT6NfY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "311803024349-3p2m4d9f3lb24lcgepq6e89uc1rhpcd1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
