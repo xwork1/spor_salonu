@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:spor_salonu/screen/profile_page.dart';
-import 'package:spor_salonu/screen/work_out_screen.dart';
 
-class FirstPage extends StatefulWidget {
-  const FirstPage({Key? key}) : super(key: key);
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({Key? key}) : super(key: key);
   @override
-  State<FirstPage> createState() => _FirstPageState();
+  State<HomeScreen> createState() => _HomeScreenState();
 }
 
-class _FirstPageState extends State<FirstPage> {
+class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     // ignore: unused_local_variable
@@ -39,9 +38,7 @@ class _FirstPageState extends State<FirstPage> {
                 height: height * 0.20,
                 left: 0,
                 right: 0,
-                child: Container(
-            
-                )),
+                child: Container()),
             //egzersiz box
             Container(
               padding: const EdgeInsets.only(left: 0, right: 0, top: 400),
@@ -53,15 +50,11 @@ class _FirstPageState extends State<FirstPage> {
                   Expanded(
                     child: GestureDetector(
                       onTap: () {
-                        Navigator.of(context).push(
-                          MaterialPageRoute(
-                            builder: (context) => const WorkoutScreen(),
-                          ),
-                        );
+                        Navigator.pushNamed(context, '/WorkOut');
                       },
                       child: Container(
-                        margin:
-                            const EdgeInsets.only(bottom: 5, left: 32, right: 32),
+                        margin: const EdgeInsets.only(
+                            bottom: 5, left: 32, right: 32),
                         decoration: const BoxDecoration(
                           borderRadius: BorderRadius.all(Radius.circular(30)),
                           gradient: LinearGradient(colors: [
@@ -74,7 +67,8 @@ class _FirstPageState extends State<FirstPage> {
                             const SizedBox(height: 20),
                             const Text(
                               "EGZERSİZLERİM",
-                              style: TextStyle(color: Colors.white, fontSize: 20),
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 20),
                             ),
                             Expanded(
                               child: Row(
@@ -128,7 +122,6 @@ class _FirstPageState extends State<FirstPage> {
                 ],
               ),
             ),
-          
           ],
         ),
       ),

@@ -4,14 +4,14 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:spor_salonu/nav_bar.dart';
 import 'package:spor_salonu/screen/register_screen.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({Key? key}) : super(key: key);
+class LoginScreen extends StatefulWidget {
+  const LoginScreen({Key? key}) : super(key: key);
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<LoginScreen> createState() => _LoginScreenState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _LoginScreenState extends State<LoginScreen> {
   //form key
   final _formKey = GlobalKey<FormState>();
 
@@ -172,7 +172,7 @@ class _LoginPageState extends State<LoginPage> {
           .then((uid) => {
                 Fluttertoast.showToast(msg: "Giriş Başarılı"),
                 Navigator.of(context).pushReplacement(
-                    MaterialPageRoute(builder: (context) => const HomeScreen()))
+                    MaterialPageRoute(builder: (context) => const NavBar()))
               })
           .catchError((e) {
         Fluttertoast.showToast(msg: "E-posta veya şifre hatalı");

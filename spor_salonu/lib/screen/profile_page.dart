@@ -1,7 +1,11 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:intl/intl.dart';
-import 'package:spor_salonu/adim_sayar.dart';
+import 'package:spor_salonu/counter_sensor.dart';
+import 'package:spor_salonu/model/user_model.dart';
 
 class ProfilPage extends StatefulWidget {
   const ProfilPage({Key? key}) : super(key: key);
@@ -46,6 +50,22 @@ class getProfiles extends StatefulWidget {
 
 // ignore: camel_case_types
 class _getProfilesState extends State<getProfiles> {
+  User? user = FirebaseAuth.instance.currentUser;
+  UserModel loggedInUser = UserModel();
+
+  @override
+  void initState() {
+    super.initState();
+    FirebaseFirestore.instance
+        .collection("users")
+        .doc(user!.uid)
+        .get()
+        .then((value) {
+      loggedInUser = UserModel.fromMap(value.data());
+      setState(() {});
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     initializeDateFormatting('tr_TR');
@@ -60,8 +80,8 @@ class _getProfilesState extends State<getProfiles> {
         child: Column(
           children: <Widget>[
             ListTile(
-              title: const Text(
-                "Merhaba, User",
+              title: Text(
+                "Hoşgeldin, ${loggedInUser.firstname}",
                 style: TextStyle(
                   color: Colors.black,
                   fontWeight: FontWeight.w800,
@@ -81,7 +101,7 @@ class _getProfilesState extends State<getProfiles> {
             const SizedBox(
               height: 10,
             ),
-            const Sensor(),
+            const CounterSensor(),
           ],
         ),
       ),

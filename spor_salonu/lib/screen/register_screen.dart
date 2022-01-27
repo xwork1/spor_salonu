@@ -16,17 +16,17 @@ class _RegisterPageState extends State<RegisterPage> {
   //formkey
   final _formkey = GlobalKey<FormState>();
   //controller
-  final nameSurnameController = TextEditingController();
-  final jobController = TextEditingController();
-  final telNumberController = TextEditingController();
-  final passwordController = TextEditingController();
-  final confirmPasswordController = TextEditingController();
+  final _nameSurnameController = TextEditingController();
+  final _emailController = TextEditingController();
+  final _telNumberController = TextEditingController();
+  final _passwordController = TextEditingController();
+  final _confirmPasswordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     //ad-soyad field
     final nameSurnameField = TextFormField(
       autofocus: false,
-      controller: nameSurnameController,
+      controller: _nameSurnameController,
       keyboardType: TextInputType.text,
       validator: (value) {
         RegExp regex = RegExp(r'^.{3,}$');
@@ -38,7 +38,7 @@ class _RegisterPageState extends State<RegisterPage> {
         }
       },
       onSaved: (value) {
-        nameSurnameController.text = value!;
+        _nameSurnameController.text = value!;
       },
       textInputAction: TextInputAction.next,
       decoration: InputDecoration(
@@ -53,7 +53,7 @@ class _RegisterPageState extends State<RegisterPage> {
     //program süresi field
     final passwordField = TextFormField(
       autofocus: false,
-      controller: passwordController,
+      controller: _passwordController,
       keyboardType: TextInputType.text,
       validator: (value) {
         RegExp regex = RegExp(r'^.{6,}$');
@@ -65,7 +65,7 @@ class _RegisterPageState extends State<RegisterPage> {
         }
       },
       onSaved: (value) {
-        passwordController.text = value!;
+        _passwordController.text = value!;
       },
       textInputAction: TextInputAction.next,
       decoration: InputDecoration(
@@ -80,25 +80,25 @@ class _RegisterPageState extends State<RegisterPage> {
     //meslek field
     final jobField = TextFormField(
       autofocus: false,
-      controller: jobController,
+      controller: _emailController,
       keyboardType: TextInputType.text,
       validator: (value) {
-        RegExp regex = RegExp(r'^.{3,}$');
         if (value!.isEmpty) {
-          return ("Kayıt için meslek gerekli");
+          return ("Kayıt için Email adresini girin");
         }
-        if (!regex.hasMatch(value)) {
-          return ("Lütfen geçerli bir meslek girin(Min 3 karakter)");
+        if (!RegExp("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+.[a-z]").hasMatch(value)) {
+          return ("Geçerli bir mail adresi giriniz");
         }
+        return null;
       },
       onSaved: (value) {
-        jobController.text = value!;
+        _emailController.text = value!;
       },
       textInputAction: TextInputAction.next,
       decoration: InputDecoration(
         prefixIcon: const Icon(Icons.work),
         contentPadding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
-        hintText: "Meslek",
+        hintText: "E-mail",
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10),
         ),
@@ -107,17 +107,17 @@ class _RegisterPageState extends State<RegisterPage> {
     //program tarihi field
     final confirmPasswordField = TextFormField(
       autofocus: false,
-      controller: confirmPasswordController,
+      controller: _confirmPasswordController,
       keyboardType: TextInputType.datetime,
       validator: (value) {
-        if (passwordController.text.length > 6 &&
-            passwordController.text != value) {
+        if (_passwordController.text.length > 6 &&
+            _passwordController.text != value) {
           return "Şifre eşleşmedi!";
         }
         return null;
       },
       onSaved: (value) {
-        confirmPasswordController.text = value!;
+        _confirmPasswordController.text = value!;
       },
       textInputAction: TextInputAction.next,
       decoration: InputDecoration(
@@ -132,10 +132,10 @@ class _RegisterPageState extends State<RegisterPage> {
     //telefon numarası field
     final telNumberField = TextFormField(
       autofocus: false,
-      controller: telNumberController,
+      controller: _telNumberController,
       keyboardType: TextInputType.phone,
       onSaved: (value) {
-        telNumberController.text = value!;
+        _telNumberController.text = value!;
       },
       textInputAction: TextInputAction.done,
       decoration: InputDecoration(
@@ -155,7 +155,9 @@ class _RegisterPageState extends State<RegisterPage> {
       child: MaterialButton(
         padding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
         minWidth: MediaQuery.of(context).size.width,
-        onPressed: () {},
+        onPressed: () {
+          signUp(_emailController.text, _passwordController.text);
+        },
         child: const Text(
           "Kayıt Ol",
           textAlign: TextAlign.center,
@@ -241,9 +243,9 @@ class _RegisterPageState extends State<RegisterPage> {
     UserModel userModel = UserModel();
     // bütün değerleri yazma
     userModel.email = user!.email;
-    userModel.uid = user!.uid;
-    userModel.firstname = nameSurnameController.text;
-    userModel.telnumber = telNumberController.text;
+    userModel.uid = user.uid;
+    userModel.firstname = _nameSurnameController.text;
+    userModel.telnumber = _telNumberController.text;
 
     await firebaseFirestore
         .collection("users")
@@ -251,6 +253,6 @@ class _RegisterPageState extends State<RegisterPage> {
         .set(userModel.toMap());
     Fluttertoast.showToast(msg: "Kayıt işlemi tamamlandı");
 
-    
+    Navigator.pushNamed(context, "/");
   }
 }

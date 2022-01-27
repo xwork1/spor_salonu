@@ -3,14 +3,14 @@ import 'package:pedometer/pedometer.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 
-class Sensor extends StatefulWidget {
-  const Sensor({Key? key}) : super(key: key);
+class CounterSensor extends StatefulWidget {
+  const CounterSensor({Key? key}) : super(key: key);
 
   @override
-  _SensorState createState() => _SensorState();
+  _CounterSensorState createState() => _CounterSensorState();
 }
 
-class _SensorState extends State<Sensor> {
+class _CounterSensorState extends State<CounterSensor> {
   late Stream<StepCount> _stepCountStream;
 
   String _steps = '?';
@@ -56,7 +56,6 @@ class _SensorState extends State<Sensor> {
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
-    final height = MediaQuery.of(context).size.height;
     double km = 0.1,kalori = 0.1;
     return Row(
       children: <Widget>[

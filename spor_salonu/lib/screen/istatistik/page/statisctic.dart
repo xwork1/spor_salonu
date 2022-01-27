@@ -13,7 +13,7 @@ class Statistic extends StatefulWidget {
 }
 
 class _StatisticState extends State<Statistic> {
-  late List<User> users;
+  late List<UserTest> users;
 
   @override
   void initState() {
@@ -47,7 +47,7 @@ class _StatisticState extends State<Statistic> {
     }).toList();
   }
 
-  List<DataRow> getRows(List<User> users) => users.map((User user) {
+  List<DataRow> getRows(List<UserTest> users) => users.map((UserTest user) {
         final cells = [user.firstName, user.lastName + 'cm', user.age];
 
         return DataRow(
@@ -72,7 +72,7 @@ class _StatisticState extends State<Statistic> {
         );
       }).toList();
 
-  Future editFirstName(User editUser) async {
+  Future editFirstName(UserTest editUser) async {
     final firstName = await showTextDialog(
       context,
       title: 'Change First Name',
@@ -86,7 +86,7 @@ class _StatisticState extends State<Statistic> {
         }).toList());
   }
 
-  Future editLastName(User editUser) async {
+  Future editLastName(UserTest editUser) async {
     final lastName = await showTextDialog(
       context,
       title: 'Change Last Name',

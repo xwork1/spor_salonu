@@ -5,19 +5,19 @@ import 'package:spor_salonu/screen/profile_page.dart';
 import 'package:spor_salonu/screen/istatistik/page/statisctic.dart';
 import 'package:spor_salonu/screen/work_out_screen.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+class NavBar extends StatefulWidget {
+  const NavBar({Key? key}) : super(key: key);
 
   @override
-  _HomeScreenState createState() => _HomeScreenState();
+  _NavBarState createState() => _NavBarState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _NavBarState extends State<NavBar> {
   int _pageIndex = 0;
   List<Widget> pageList = <Widget>[
-    const FirstPage(),
+    const HomeScreen(),
     const WorkoutScreen(),
-    Statistic(),
+    const Statistic(),
     const ProfilPage(),
   ];
 

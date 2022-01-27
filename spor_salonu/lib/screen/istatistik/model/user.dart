@@ -1,20 +1,20 @@
-class User {
+class UserTest {
   final String firstName;
   final String lastName;
   final int age;
 
-  const User({
+  const UserTest({
     required this.firstName,
     required this.lastName,
     required this.age,
   });
 
-  User copy({
+  UserTest copy({
     String? firstName,
     String? lastName,
     int? age,
   }) =>
-      User(
+      UserTest(
         firstName: firstName ?? this.firstName,
         lastName: lastName ?? this.lastName,
         age: age ?? this.age,
@@ -23,7 +23,7 @@ class User {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is User &&
+      other is UserTest &&
           runtimeType == other.runtimeType &&
           firstName == other.firstName &&
           lastName == other.lastName &&
