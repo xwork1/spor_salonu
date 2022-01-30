@@ -1,55 +1,22 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:intl/intl.dart';
-import 'package:spor_salonu/counter_sensor.dart';
+import 'package:spor_salonu/adimsayar/counter_sensor.dart';
 import 'package:spor_salonu/model/user_model.dart';
 
-class ProfilPage extends StatefulWidget {
-  const ProfilPage({Key? key}) : super(key: key);
-
-  @override
-  State<ProfilPage> createState() => _ProfilPageState();
-}
-
-class _ProfilPageState extends State<ProfilPage> {
-  @override
-  Widget build(BuildContext context) {
-    final height = MediaQuery.of(context).size.height;
-    final today = DateTime.now();
-    return Material(
-      child: Scaffold(
-        backgroundColor: const Color(0xFFE9E9E9),
-        body: Stack(
-          children: <Widget>[
-            Positioned(
-              top: 0,
-              height: height * 0.45,
-              left: 0,
-              right: 0,
-              child: getProfiles(today: today),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-// ignore: camel_case_types
-class getProfiles extends StatefulWidget {
-  const getProfiles({Key? key, required this.today}) : super(key: key);
+class PedometerScreen extends StatefulWidget {
+  const PedometerScreen({Key? key, required this.today}) : super(key: key);
 
   final DateTime today;
 
   @override
-  State<getProfiles> createState() => _getProfilesState();
+  State<PedometerScreen> createState() => _PedometerScreenState();
 }
 
 // ignore: camel_case_types
-class _getProfilesState extends State<getProfiles> {
+class _PedometerScreenState extends State<PedometerScreen> {
   User? user = FirebaseAuth.instance.currentUser;
   UserModel loggedInUser = UserModel();
 
@@ -82,7 +49,7 @@ class _getProfilesState extends State<getProfiles> {
             ListTile(
               title: Text(
                 "Hoşgeldin, ${loggedInUser.firstname}",
-                style: TextStyle(
+                style: const TextStyle(
                   color: Colors.black,
                   fontWeight: FontWeight.w800,
                   fontSize: 26,
@@ -96,7 +63,7 @@ class _getProfilesState extends State<getProfiles> {
                 Icons.person,
                 size: 60,
                 color: Colors.black,
-              ), //image eklersen consttan çıkar
+              ),
             ),
             const SizedBox(
               height: 10,

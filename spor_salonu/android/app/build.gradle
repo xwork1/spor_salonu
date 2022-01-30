@@ -44,7 +44,7 @@ android {
     defaultConfig {
         applicationId "com.example.spor_salonu"
         minSdkVersion 21
-        targetSdkVersion 30
+        targetSdkVersion 28
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
     }

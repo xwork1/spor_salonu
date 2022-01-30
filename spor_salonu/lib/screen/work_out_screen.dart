@@ -59,24 +59,23 @@ class WorkoutScreen extends StatelessWidget {
                           Icons.access_time,
                           color: Colors.white30,
                         ),
-                        SizedBox(height: 15,),
+                        SizedBox(
+                          height: 15,
+                        ),
                         Text(
                           " 1 Saat",
                           style: TextStyle(
-                            color: Colors.white30,
-                            fontWeight: FontWeight.w600,
-                            fontSize: 16
-                          ),
+                              color: Colors.white30,
+                              fontWeight: FontWeight.w600,
+                              fontSize: 16),
                         ),
-                        SizedBox(height: 20),     
+                        SizedBox(height: 20),
                       ],
                     ),
-
                   ],
-
                 ),
               ),
-           for (int i = 0; i < upperBody.length; i++)
+              for (int i = 0; i < upperBody.length; i++)
                 Column(
                   children: <Widget>[
                     for (int j = 0; j < upperBody[i].length; j++)
@@ -113,7 +112,7 @@ class WorkoutScreen extends StatelessWidget {
                       ),
                     const SizedBox(
                       height: 30,
-                      ),
+                    ),
                   ],
                 ),
             ],

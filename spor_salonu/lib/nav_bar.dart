@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:spor_salonu/screen/home_screen.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
-import 'package:spor_salonu/screen/profile_page.dart';
+import 'package:spor_salonu/screen/profile_screen.dart';
 import 'package:spor_salonu/screen/istatistik/page/statisctic.dart';
 import 'package:spor_salonu/screen/work_out_screen.dart';
 
@@ -12,10 +12,12 @@ class NavBar extends StatefulWidget {
   _NavBarState createState() => _NavBarState();
 }
 
+var keyHomeScreen = const PageStorageKey("ana_sayfa_key");
+
 class _NavBarState extends State<NavBar> {
   int _pageIndex = 0;
   List<Widget> pageList = <Widget>[
-    const HomeScreen(),
+    HomeScreen(keyHomeScreen),
     const WorkoutScreen(),
     const Statistic(),
     const ProfilPage(),

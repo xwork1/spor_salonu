@@ -12,6 +12,7 @@ class RegisterPage extends StatefulWidget {
 }
 
 class _RegisterPageState extends State<RegisterPage> {
+  bool isLoading = false;
   final _auth = FirebaseAuth.instance;
   //formkey
   final _formkey = GlobalKey<FormState>();

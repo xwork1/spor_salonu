@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:spor_salonu/screen/profile_page.dart';
+import 'package:spor_salonu/adimsayar/pedometer_screen.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+  const HomeScreen(Key k) : super(key: k);
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
@@ -29,7 +29,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 height: height * 0.45,
                 left: 0,
                 right: 0,
-                child: getProfiles(
+                child: PedometerScreen(
                   today: today,
                 )),
             //boş
@@ -62,60 +62,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             Color(0xFF200087),
                           ]),
                         ),
-                        child: Column(
-                          children: <Widget>[
-                            const SizedBox(height: 20),
-                            const Text(
-                              "EGZERSİZLERİM",
-                              style:
-                                  TextStyle(color: Colors.white, fontSize: 20),
-                            ),
-                            Expanded(
-                              child: Row(
-                                children: <Widget>[
-                                  Container(
-                                    decoration: const BoxDecoration(
-                                        color: Color(0xFF5B4D9D),
-                                        borderRadius: BorderRadius.all(
-                                            Radius.circular(25))),
-                                    padding: const EdgeInsets.all(5),
-                                    child: Image.asset("images/chest.png",
-                                        width: 50,
-                                        height: 50,
-                                        color: Colors.white),
-                                  ),
-                                  const SizedBox(
-                                    width: 10,
-                                  ),
-                                  Container(
-                                    decoration: const BoxDecoration(
-                                        color: Color(0xFF5B4D9D),
-                                        borderRadius: BorderRadius.all(
-                                            Radius.circular(25))),
-                                    padding: const EdgeInsets.all(5),
-                                    child: Image.asset("images/back.png",
-                                        color: Colors.white,
-                                        width: 50,
-                                        height: 50),
-                                  ),
-                                  const SizedBox(width: 10),
-                                  Container(
-                                    decoration: const BoxDecoration(
-                                        color: Color(0xFF5B4D9D),
-                                        borderRadius: BorderRadius.all(
-                                            Radius.circular(25))),
-                                    padding: const EdgeInsets.all(5),
-                                    child: Image.asset("images/bicepss.png",
-                                        color: Colors.white,
-                                        width: 50,
-                                        height: 50),
-                                  ),
-                                  const SizedBox(width: 10),
-                                ],
-                              ),
-                            ),
-                          ],
-                        ),
+                        child: const EgzersizList(),
                       ),
                     ),
                   ),
@@ -125,6 +72,60 @@ class _HomeScreenState extends State<HomeScreen> {
           ],
         ),
       ),
+    );
+  }
+}
+
+class EgzersizList extends StatelessWidget {
+  const EgzersizList({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: <Widget>[
+        const SizedBox(height: 20),
+        const Text(
+          "EGZERSİZLERİM",
+          style: TextStyle(color: Colors.white, fontSize: 20),
+        ),
+        Expanded(
+          child: Row(
+            children: <Widget>[
+              Container(
+                decoration: const BoxDecoration(
+                    color: Color(0xFF5B4D9D),
+                    borderRadius: BorderRadius.all(Radius.circular(25))),
+                padding: const EdgeInsets.all(5),
+                child: Image.asset("images/chest.png",
+                    width: 50, height: 50, color: Colors.white),
+              ),
+              const SizedBox(
+                width: 10,
+              ),
+              Container(
+                decoration: const BoxDecoration(
+                    color: Color(0xFF5B4D9D),
+                    borderRadius: BorderRadius.all(Radius.circular(25))),
+                padding: const EdgeInsets.all(5),
+                child: Image.asset("images/back.png",
+                    color: Colors.white, width: 50, height: 50),
+              ),
+              const SizedBox(width: 10),
+              Container(
+                decoration: const BoxDecoration(
+                    color: Color(0xFF5B4D9D),
+                    borderRadius: BorderRadius.all(Radius.circular(25))),
+                padding: const EdgeInsets.all(5),
+                child: Image.asset("images/bicepss.png",
+                    color: Colors.white, width: 50, height: 50),
+              ),
+              const SizedBox(width: 10),
+            ],
+          ),
+        ),
+      ],
     );
   }
 }

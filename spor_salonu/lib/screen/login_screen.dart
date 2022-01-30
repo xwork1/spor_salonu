@@ -1,6 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:spor_salonu/constants.dart';
 import 'package:spor_salonu/nav_bar.dart';
 import 'package:spor_salonu/screen/register_screen.dart';
 
@@ -14,7 +16,8 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   //form key
   final _formKey = GlobalKey<FormState>();
-
+  bool isObscure = true;
+  bool isLoading = false;
   //kontroller düzenleme
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
@@ -49,9 +52,12 @@ class _LoginScreenState extends State<LoginScreen> {
         prefixIcon: const Icon(Icons.mail),
         contentPadding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
         hintText: "E-mail",
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(10),
-        ),
+        hintStyle: kHintStyle,
+        fillColor: Colors.grey,
+        enabledBorder: kOutlineBorder,
+        focusedBorder: kOutlineBorder,
+        errorBorder: kErrorBorder,
+        focusedErrorBorder: kErrorBorder,
       ),
     );
 
@@ -60,7 +66,7 @@ class _LoginScreenState extends State<LoginScreen> {
       autofocus: false,
       controller: _passwordController,
       keyboardType: TextInputType.text,
-      obscureText: true,
+      obscureText: isObscure,
       validator: (value) {
         RegExp regex = RegExp(r'^.{6,}$');
         if (value!.isEmpty) {
@@ -78,84 +84,113 @@ class _LoginScreenState extends State<LoginScreen> {
         prefixIcon: const Icon(Icons.vpn_key),
         contentPadding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
         hintText: "Şifre",
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(10),
-        ),
-      ),
-    );
-
-    //login button
-    final loginButton = Material(
-      elevation: 5,
-      borderRadius: BorderRadius.circular(30),
-      color: Colors.blueGrey,
-      child: MaterialButton(
-        padding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
-        minWidth: MediaQuery.of(context).size.width,
-        onPressed: () {
-          sigIn(_emailController.text, _passwordController.text);
-        },
-        child: const Text(
-          "Giriş Yap",
-          textAlign: TextAlign.center,
-          style: TextStyle(
-            fontSize: 20,
-            color: Colors.white,
-            fontWeight: FontWeight.bold,
+        hintStyle: kHintStyle,
+        fillColor: Colors.grey,
+        enabledBorder: kOutlineBorder,
+        focusedBorder: kOutlineBorder,
+        errorBorder: kErrorBorder,
+        focusedErrorBorder: kErrorBorder,
+        suffixIcon: InkWell(
+          onTap: () {
+            setState(() {
+              isObscure = !isObscure;
+            });
+          },
+          child: Icon(
+            isObscure ? Icons.radio_button_off : Icons.radio_button_checked,
           ),
         ),
       ),
     );
 
-    return Scaffold(
-      backgroundColor: Colors.white,
-      body: Center(
-        child: SingleChildScrollView(
-          child: Container(
-            color: Colors.white,
-            child: Padding(
-              padding: const EdgeInsets.all(36.0),
-              child: Form(
-                key: _formKey,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: <Widget>[
-                    SizedBox(
-                      height: 250,
-                      child: Image.asset("images/gym-logo1.gif",
-                          fit: BoxFit.contain),
-                    ),
-                    const SizedBox(height: 10),
-                    emailField,
-                    const SizedBox(height: 15),
-                    passwordField,
-                    const SizedBox(height: 35),
-                    loginButton,
-                    const SizedBox(height: 15),
-                    Row(
+    //login button
+    final loginButton = SizedBox(
+      width: 220,
+      height: 40,
+      child: ElevatedButton(
+        onPressed: () async {
+          setState(() {
+            isLoading = true;
+            sigIn(_emailController.text, _passwordController.text);
+          });
+          await Future.delayed(const Duration(seconds: 5));
+          setState(() {
+            isLoading = false;
+          });
+        },
+        child: (isLoading)
+            ? const SizedBox(
+                child: kLoaderBtn,
+              )
+            : const Text(
+                "Giriş Yap",
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 20,
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+      ),
+    );
+
+    return WillPopScope(
+      //bool değer
+      onWillPop: _onWillPop,
+      child: GestureDetector(
+        onTap: () => Focus.of(context).unfocus(),
+        child: Scaffold(
+          backgroundColor: Colors.white,
+          body: Center(
+            child: SingleChildScrollView(
+              child: Container(
+                color: Colors.white,
+                child: Padding(
+                  padding: const EdgeInsets.all(36.0),
+                  child: Form(
+                    key: _formKey,
+                    child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: <Widget>[
-                        const Text("Hala kayıt olmadınız mı? "),
-                        GestureDetector(
-                          onTap: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) =>
-                                        const RegisterPage()));
-                          },
-                          child: const Text(
-                            "Kayıt ol",
-                            style: TextStyle(
-                                color: Colors.redAccent,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 15),
-                          ),
+                        SizedBox(
+                          height: 180,
+                          width: 180,
+                          child: Image.asset("images/gym-logo1.gif",
+                              fit: BoxFit.contain),
+                        ),
+                        const SizedBox(height: 10),
+                        emailField,
+                        const SizedBox(height: 15),
+                        passwordField,
+                        const SizedBox(height: 35),
+                        loginButton,
+                        const SizedBox(height: 15),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            const Text("Hala kayıt olmadınız mı? "),
+                            GestureDetector(
+                              onTap: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            const RegisterPage()));
+                              },
+                              child: const Text(
+                                "Kayıt ol",
+                                style: TextStyle(
+                                    color: Colors.redAccent,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 15),
+                              ),
+                            ),
+                          ],
                         ),
                       ],
                     ),
-                  ],
+                  ),
                 ),
               ),
             ),
@@ -178,5 +213,32 @@ class _LoginScreenState extends State<LoginScreen> {
         Fluttertoast.showToast(msg: "E-posta veya şifre hatalı");
       });
     }
+  }
+
+  Future<bool> _onWillPop() async {
+    return (await showDialog(
+            context: context,
+            builder: (context) => AlertDialog(
+                  title: const Text("Uygulamadan Çıkılıyor"),
+                  content: const Text("Emin misiniz?"),
+                  actions: [
+                    TextButton(
+                        onPressed: () {
+                          SystemNavigator.pop();
+                        },
+                        child: const Text(
+                          "YES",
+                          style: TextStyle(color: Colors.red),
+                        )),
+                    TextButton(
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                      },
+                      child: const Text("NO",
+                          style: TextStyle(color: Colors.black54)),
+                    ),
+                  ],
+                ))) ??
+        false;
   }
 }

@@ -56,7 +56,7 @@ class _CounterSensorState extends State<CounterSensor> {
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
-    double km = 0.1,kalori = 0.1;
+    double km = 0.1, kalori = 0.1;
     return Row(
       children: <Widget>[
         Column(
@@ -64,7 +64,7 @@ class _CounterSensorState extends State<CounterSensor> {
           children: <Widget>[
             CircularPercentIndicator(
               radius: 150.0,
-              animation: true,
+              animation: false,
               animationDuration: 1200,
               lineWidth: 10.0,
               percent: 0.2,

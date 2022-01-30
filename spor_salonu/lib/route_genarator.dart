@@ -8,12 +8,12 @@ class RouteGenarator {
     switch (settings.name) {
       case '/':
         return MaterialPageRoute(
-          builder: (context) => const LoginScreen(),
-        );
-      case '/HomeScreen':
-        return MaterialPageRoute(
           builder: (context) => const NavBar(),
         );
+      /*case '/HomeScreen':
+        return MaterialPageRoute(
+          builder: (context) => const NavBar(),
+        );*/
       case '/WorkOut':
         return MaterialPageRoute(
           builder: (context) => const WorkoutScreen(),
