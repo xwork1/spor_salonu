@@ -10,14 +10,22 @@ class ProfilPage extends StatefulWidget {
 class _ProfilPageState extends State<ProfilPage> {
   @override
   Widget build(BuildContext context) {
-    return Material(
-      child: Scaffold(
-        backgroundColor: const Color(0xFFE9E9E9),
-        body: Container(),
+    return Scaffold(
+      backgroundColor: Colors.white,
+      body: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: const [
+                Text("Osman Gül"),
+                CircleAvatar(),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }
 }
-
-// ignore: camel_case_types
-

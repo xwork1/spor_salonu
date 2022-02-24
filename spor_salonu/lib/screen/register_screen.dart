@@ -6,24 +6,29 @@ import 'package:spor_salonu/model/user_model.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({Key? key}) : super(key: key);
-
   @override
   _RegisterPageState createState() => _RegisterPageState();
 }
 
 class _RegisterPageState extends State<RegisterPage> {
+
   bool isLoading = false;
+
   final _auth = FirebaseAuth.instance;
+
   //formkey
   final _formkey = GlobalKey<FormState>();
+
   //controller
   final _nameSurnameController = TextEditingController();
   final _emailController = TextEditingController();
   final _telNumberController = TextEditingController();
   final _passwordController = TextEditingController();
   final _confirmPasswordController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
+    
     //ad-soyad field
     final nameSurnameField = TextFormField(
       autofocus: false,
@@ -37,6 +42,7 @@ class _RegisterPageState extends State<RegisterPage> {
         if (!regex.hasMatch(value)) {
           return ("Lütfen geçerli isim girin(Min 3 karakter)");
         }
+        return null;
       },
       onSaved: (value) {
         _nameSurnameController.text = value!;
@@ -64,6 +70,7 @@ class _RegisterPageState extends State<RegisterPage> {
         if (!regex.hasMatch(value)) {
           return ("Lütfen geçerli şifre girin(Min 6 karakter)");
         }
+        return null;
       },
       onSaved: (value) {
         _passwordController.text = value!;

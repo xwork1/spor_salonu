@@ -1,10 +1,7 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:intl/intl.dart';
-import 'package:spor_salonu/adimsayar/counter_sensor.dart';
-import 'package:spor_salonu/model/user_model.dart';
+import 'package:spor_salonu/adimsayar/pedometer_sensor.dart';
 
 class PedometerScreen extends StatefulWidget {
   const PedometerScreen({Key? key, required this.today}) : super(key: key);
@@ -17,21 +14,6 @@ class PedometerScreen extends StatefulWidget {
 
 // ignore: camel_case_types
 class _PedometerScreenState extends State<PedometerScreen> {
-  User? user = FirebaseAuth.instance.currentUser;
-  UserModel loggedInUser = UserModel();
-
-  @override
-  void initState() {
-    super.initState();
-    FirebaseFirestore.instance
-        .collection("users")
-        .doc(user!.uid)
-        .get()
-        .then((value) {
-      loggedInUser = UserModel.fromMap(value.data());
-      setState(() {});
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -47,9 +29,9 @@ class _PedometerScreenState extends State<PedometerScreen> {
         child: Column(
           children: <Widget>[
             ListTile(
-              title: Text(
-                "Hoşgeldin, ${loggedInUser.firstname}",
-                style: const TextStyle(
+              title: const Text(
+                "Hoşgeldin, ",
+                style: TextStyle(
                   color: Colors.black,
                   fontWeight: FontWeight.w800,
                   fontSize: 26,
@@ -68,7 +50,7 @@ class _PedometerScreenState extends State<PedometerScreen> {
             const SizedBox(
               height: 10,
             ),
-            const CounterSensor(),
+            const PedometerSensor(),
           ],
         ),
       ),

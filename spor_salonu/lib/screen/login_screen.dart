@@ -18,6 +18,7 @@ class _LoginScreenState extends State<LoginScreen> {
   final _formKey = GlobalKey<FormState>();
   bool isObscure = true;
   bool isLoading = false;
+
   //kontroller düzenleme
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
@@ -75,6 +76,7 @@ class _LoginScreenState extends State<LoginScreen> {
         if (!regex.hasMatch(value)) {
           return ("Lütfen geçerli şifre girin(Min 6 karakter)");
         }
+        return "işler karıştı haberin olsun";
       },
       onSaved: (value) {
         _passwordController.text = value!;
@@ -109,14 +111,12 @@ class _LoginScreenState extends State<LoginScreen> {
       height: 40,
       child: ElevatedButton(
         onPressed: () async {
-          setState(() {
+          try {
             isLoading = true;
             sigIn(_emailController.text, _passwordController.text);
-          });
-          await Future.delayed(const Duration(seconds: 5));
-          setState(() {
-            isLoading = false;
-          });
+          } catch (e) {
+            debugPrint(e.toString());
+          }
         },
         child: (isLoading)
             ? const SizedBox(
@@ -200,7 +200,7 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 
-  void sigIn(String email, String password) async {
+  Future<void> sigIn(String email, String password) async {
     if (_formKey.currentState!.validate()) {
       await _auth
           .signInWithEmailAndPassword(email: email, password: password)
@@ -214,7 +214,7 @@ class _LoginScreenState extends State<LoginScreen> {
       });
     }
   }
-
+  // asd
   Future<bool> _onWillPop() async {
     return (await showDialog(
             context: context,
