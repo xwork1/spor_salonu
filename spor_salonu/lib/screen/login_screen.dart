@@ -214,12 +214,12 @@ class _LoginScreenState extends State<LoginScreen> {
       });
     }
   }
-  // asd
+
   Future<bool> _onWillPop() async {
     return (await showDialog(
             context: context,
             builder: (context) => AlertDialog(
-                  title: const Text("Uygulamadan Çıkılıyor"),
+                  title: const Text("Uygulama Kapatılıyor"),
                   content: const Text("Emin misiniz?"),
                   actions: [
                     TextButton(

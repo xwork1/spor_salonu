@@ -14,7 +14,6 @@ class PedometerScreen extends StatefulWidget {
 
 // ignore: camel_case_types
 class _PedometerScreenState extends State<PedometerScreen> {
-
   @override
   Widget build(BuildContext context) {
     initializeDateFormatting('tr_TR');
@@ -23,14 +22,13 @@ class _PedometerScreenState extends State<PedometerScreen> {
         bottom: Radius.circular(40),
       ),
       child: Container(
+        padding: const EdgeInsets.all(25.0),
         color: Colors.white,
-        padding:
-            const EdgeInsets.only(top: 50, left: 32, right: 16, bottom: 10),
         child: Column(
           children: <Widget>[
             ListTile(
               title: const Text(
-                "Hoşgeldin, ",
+                "Hoşgeldin,",
                 style: TextStyle(
                   color: Colors.black,
                   fontWeight: FontWeight.w800,

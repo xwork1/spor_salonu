@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:spor_salonu/adimsayar/pedometer_screen.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen(Key k) : super(key: k);
+  const HomeScreen({Key? key}) : super(key: key);
+
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
@@ -24,21 +25,73 @@ class _HomeScreenState extends State<HomeScreen> {
         body: Stack(
           children: <Widget>[
             //profil sayfası
-            Positioned(
-                top: 0,
-                height: height * 0.45,
-                left: 0,
-                right: 0,
-                child: PedometerScreen(
-                  today: today,
-                )),
+            PedometerScreen(
+              today: today,
+            ),
             //boş
             Positioned(
-                top: 300,
-                height: height * 0.20,
-                left: 0,
-                right: 0,
-                child: Container()),
+              top: 300,
+              child: SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Padding(
+                    padding: const EdgeInsets.all(2.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(2.0),
+                          child: Container(
+                            height: 100,
+                            width: 100,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(20),
+                                color: Colors.red),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(2.0),
+                          child: Container(
+                            height: 100,
+                            width: 100,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(20),
+                                color: Colors.red),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(2.0),
+                          child: Container(
+                            height: 100,
+                            width: 100,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(20),
+                                color: Colors.red),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(2.0),
+                          child: Container(
+                            height: 100,
+                            width: 100,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(20),
+                                color: Colors.red),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(2.0),
+                          child: Container(
+                            height: 100,
+                            width: 100,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(20),
+                                color: Colors.red),
+                          ),
+                        ),
+                      ],
+                    ),
+                  )),
+            ),
             //egzersiz box
             Container(
               padding: const EdgeInsets.only(left: 0, right: 0, top: 400),
