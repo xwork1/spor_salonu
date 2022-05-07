@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:spor_salonu/model/user_model.dart';
+import 'package:spor_salonu/model/vucut_endeks_model.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({Key? key}) : super(key: key);
@@ -11,7 +12,6 @@ class RegisterPage extends StatefulWidget {
 }
 
 class _RegisterPageState extends State<RegisterPage> {
-
   bool isLoading = false;
 
   final _auth = FirebaseAuth.instance;
@@ -28,7 +28,6 @@ class _RegisterPageState extends State<RegisterPage> {
 
   @override
   Widget build(BuildContext context) {
-    
     //ad-soyad field
     final nameSurnameField = TextFormField(
       autofocus: false,
@@ -263,4 +262,5 @@ class _RegisterPageState extends State<RegisterPage> {
 
     Navigator.pushNamed(context, "/");
   }
+  
 }

@@ -1,9 +1,11 @@
 import 'dart:convert';
 
+
+
 class Endeks {
   final String kisim;
-  final int boyut;
-  final int kilo;
+  final String boyut;
+  final String kilo;
   final DateTime tarih;
   Endeks({
     required this.kisim,
@@ -11,6 +13,23 @@ class Endeks {
     required this.kilo,
     required this.tarih,
   });
+  
+
+  
+
+  Endeks copyWith({
+    String? kisim,
+    String? boyut,
+    String? kilo,
+    DateTime? tarih,
+  }) {
+    return Endeks(
+      kisim: kisim ?? this.kisim,
+      boyut: boyut ?? this.boyut,
+      kilo: kilo ?? this.kilo,
+      tarih: tarih ?? this.tarih,
+    );
+  }
 
   Map<String, dynamic> toMap() {
     return {
@@ -24,8 +43,8 @@ class Endeks {
   factory Endeks.fromMap(Map<String, dynamic> map) {
     return Endeks(
       kisim: map['kisim'] ?? '',
-      boyut: map['boyut']?.toInt() ?? 0,
-      kilo: map['kilo']?.toInt() ?? 0,
+      boyut: map['boyut'] ?? '',
+      kilo: map['kilo'] ?? '',
       tarih: DateTime.fromMillisecondsSinceEpoch(map['tarih']),
     );
   }
@@ -37,5 +56,24 @@ class Endeks {
   @override
   String toString() {
     return 'Endeks(kisim: $kisim, boyut: $boyut, kilo: $kilo, tarih: $tarih)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+  
+    return other is Endeks &&
+      other.kisim == kisim &&
+      other.boyut == boyut &&
+      other.kilo == kilo &&
+      other.tarih == tarih;
+  }
+
+  @override
+  int get hashCode {
+    return kisim.hashCode ^
+      boyut.hashCode ^
+      kilo.hashCode ^
+      tarih.hashCode;
   }
 }

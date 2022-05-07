@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:spor_salonu/nav_bar.dart';
+import 'package:spor_salonu/screen/login_screen.dart';
 import 'package:spor_salonu/screen/work_out_screen.dart';
 
 class RouteGenarator {
@@ -9,7 +10,7 @@ class RouteGenarator {
         return MaterialPageRoute(
           builder: (context) => const NavBar(),
         );
-      /*case '/HomeScreen':
+     /* case '/HomeScreen':
         return MaterialPageRoute(
           builder: (context) => const NavBar(),
         );*/

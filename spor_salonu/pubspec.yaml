@@ -19,7 +19,18 @@ dependencies:
   fluttertoast: ^8.0.8
   firebase_core: ^1.11.0
   cloud_firestore: ^3.1.6
+  cupertino_icons: ^1.0.2
+  flutter_datetime_picker: ^1.5.1
+  uuid: ^3.0.5
+  hive: ^2.0.5
+  hive_flutter: ^1.1.0
+  get_it: ^7.2.0
+  easy_localization: ^3.0.0
+  video_player: ^1.0.1
+
 dev_dependencies:
+  hive_generator: 
+  build_runner:
   flutter_test:
     sdk: flutter
 
@@ -30,5 +41,6 @@ flutter:
   uses-material-design: true
 
   assets:
+    - assets/videos
     - images/
-
+    - assets/translations/

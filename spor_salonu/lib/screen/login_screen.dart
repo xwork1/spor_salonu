@@ -76,7 +76,6 @@ class _LoginScreenState extends State<LoginScreen> {
         if (!regex.hasMatch(value)) {
           return ("Lütfen geçerli şifre girin(Min 6 karakter)");
         }
-        return "işler karıştı haberin olsun";
       },
       onSaved: (value) {
         _passwordController.text = value!;
@@ -112,25 +111,20 @@ class _LoginScreenState extends State<LoginScreen> {
       child: ElevatedButton(
         onPressed: () async {
           try {
-            isLoading = true;
             sigIn(_emailController.text, _passwordController.text);
           } catch (e) {
             debugPrint(e.toString());
           }
         },
-        child: (isLoading)
-            ? const SizedBox(
-                child: kLoaderBtn,
-              )
-            : const Text(
-                "Giriş Yap",
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 20,
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
+        child: const Text(
+          "Giriş Yap",
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            fontSize: 20,
+            color: Colors.white,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
       ),
     );
 
