@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:spor_salonu/screen/istatistik/model/vucut_ekle_model.dart';
+import 'package:spor_salonu/model/vucut_ekle_model.dart';
+
 
 class BodyItem extends StatefulWidget {
   final BodyModel bodymodel;
@@ -28,8 +29,8 @@ class _BodyItemState extends State<BodyItem> {
         title: Text(widget.bodymodel.bolge),
         trailing: Text(DateFormat('yMd').format(widget.bodymodel.createdAt) +
             DateFormat(' H:m').format(widget.bodymodel.createdAt)),
-        subtitle: Text('Ölçünüz: ${widget.bodymodel.olcu}cm' +
-            ' \nHedef Ölçünüz: ${widget.bodymodel.hedef}cm'),
+        subtitle: Text(
+            'Ölçünüz: ${widget.bodymodel.olcu}cm \nHedef Ölçünüz: ${widget.bodymodel.hedef}cm'),
       ),
     );
   }

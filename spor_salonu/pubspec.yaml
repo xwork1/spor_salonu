@@ -27,7 +27,6 @@ dependencies:
   get_it: ^7.2.0
   easy_localization: ^3.0.0
   video_player: ^1.0.1
-
 dev_dependencies:
   hive_generator: 
   build_runner:
@@ -41,6 +40,5 @@ flutter:
   uses-material-design: true
 
   assets:
-    - assets/videos
     - images/
     - assets/translations/

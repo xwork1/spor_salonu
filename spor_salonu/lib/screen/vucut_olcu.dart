@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:spor_salonu/data/local_storage.dart';
 import 'package:spor_salonu/main.dart';
+import 'package:spor_salonu/model/vucut_ekle_model.dart';
 import 'package:spor_salonu/widgets/body_item_list.dart';
 import 'package:uuid/uuid.dart';
 
-import '../model/vucut_ekle_model.dart';
 
 class Statistic extends StatefulWidget {
   const Statistic({Key? key}) : super(key: key);

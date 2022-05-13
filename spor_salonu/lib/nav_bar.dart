@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:spor_salonu/screen/home_screen.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 import 'package:spor_salonu/screen/profile_screen.dart';
-import 'package:spor_salonu/screen/istatistik/page/statisctic.dart';
+import 'package:spor_salonu/screen/vucut_olcu.dart';
 import 'package:spor_salonu/screen/home_screen.dart';
-import 'package:spor_salonu/screen/egzersiz_listesi.dart';
+import 'package:spor_salonu/screen/egzersiz_list.dart';
 
 class NavBar extends StatefulWidget {
   const NavBar({Key? key}) : super(key: key);

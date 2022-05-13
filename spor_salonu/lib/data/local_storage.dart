@@ -1,5 +1,5 @@
 import 'package:hive/hive.dart';
-import 'package:spor_salonu/screen/istatistik/model/vucut_ekle_model.dart';
+import 'package:spor_salonu/model/vucut_ekle_model.dart';
 
 abstract class LocalStorage {
   Future<void> addBody({required BodyModel bodymodel});
@@ -37,7 +37,7 @@ class HiveLocalStorage extends LocalStorage {
   }
 
   @override
-  Future<BodyModel?> getBody({required String id}) async{
+  Future<BodyModel?> getBody({required String id}) async {
     if (_bodyBox.containsKey(id)) {
       return _bodyBox.get(id);
     } else {

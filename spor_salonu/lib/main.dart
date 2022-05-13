@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:spor_salonu/data/local_storage.dart';
+import 'package:spor_salonu/model/vucut_ekle_model.dart';
 import 'package:spor_salonu/route_genarator.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/services.dart';
-import 'package:spor_salonu/screen/istatistik/model/vucut_ekle_model.dart';
 
 final locator = GetIt.instance;
 
