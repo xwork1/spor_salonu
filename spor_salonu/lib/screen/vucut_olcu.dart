@@ -1,12 +1,10 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:hive/hive.dart';
 import 'package:spor_salonu/data/local_storage.dart';
 import 'package:spor_salonu/main.dart';
 import 'package:spor_salonu/model/vucut_ekle_model.dart';
 import 'package:spor_salonu/widgets/body_item_list.dart';
 import 'package:uuid/uuid.dart';
-
 
 class Statistic extends StatefulWidget {
   const Statistic({Key? key}) : super(key: key);
@@ -64,15 +62,15 @@ class _StatisticState extends State<Statistic> {
                 return Dismissible(
                     background: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
-                      children: const [
-                        Icon(
+                      children: [
+                        const Icon(
                           Icons.delete,
                           color: Colors.grey,
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 8,
                         ),
-                        Text('Bu kısım silindi')
+                        const Text('remove_task').tr()
                       ],
                     ),
                     key: Key(_oankiListeElemani.id),

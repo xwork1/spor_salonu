@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:spor_salonu/data/diyet.dart';
 
@@ -86,7 +87,7 @@ class MealDetailScreen extends StatelessWidget {
                             width: 5,
                           ),
                           Text(
-                            "${meal.timeTaken} mins",
+                            meal.timeTaken + ' ' + 'mins'.tr(),
                             style: const TextStyle(
                                 color: Colors.grey,
                                 fontWeight: FontWeight.w600,
@@ -103,7 +104,7 @@ class MealDetailScreen extends StatelessWidget {
                 const Padding(
                   padding: EdgeInsets.symmetric(horizontal: 16),
                   child: Text(
-                    "INGREDIENTS",
+                    "İÇİNDEKİLER",
                     style: TextStyle(
                       fontWeight: FontWeight.w800,
                       fontSize: 14,
@@ -140,7 +141,7 @@ class MealDetailScreen extends StatelessWidget {
                 const Padding(
                   padding: EdgeInsets.symmetric(horizontal: 16),
                   child: Text(
-                    "PREPARATION",
+                    "HAZIRLIK",
                     style: TextStyle(
                       fontWeight: FontWeight.w800,
                       fontSize: 14,

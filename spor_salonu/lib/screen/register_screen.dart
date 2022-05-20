@@ -5,6 +5,8 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:spor_salonu/model/user_model.dart';
 import 'package:spor_salonu/model/vucut_endeks_model.dart';
 
+import '../constants.dart';
+
 class RegisterPage extends StatefulWidget {
   const RegisterPage({Key? key}) : super(key: key);
   @override
@@ -51,9 +53,12 @@ class _RegisterPageState extends State<RegisterPage> {
         prefixIcon: const Icon(Icons.person),
         contentPadding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
         hintText: "Ad-Soyad",
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(10),
-        ),
+        hintStyle: kHintStyle,
+        fillColor: Colors.grey,
+        enabledBorder: kOutlineBorder,
+        focusedBorder: kOutlineBorder,
+        errorBorder: kErrorBorder,
+        focusedErrorBorder: kErrorBorder,
       ),
     );
     //program süresi field
@@ -76,12 +81,15 @@ class _RegisterPageState extends State<RegisterPage> {
       },
       textInputAction: TextInputAction.next,
       decoration: InputDecoration(
-        prefixIcon: const Icon(Icons.timeline),
+        prefixIcon: const Icon(Icons.key),
         contentPadding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
         hintText: "Şifre",
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(10),
-        ),
+        hintStyle: kHintStyle,
+        fillColor: Colors.grey,
+        enabledBorder: kOutlineBorder,
+        focusedBorder: kOutlineBorder,
+        errorBorder: kErrorBorder,
+        focusedErrorBorder: kErrorBorder,
       ),
     );
     //meslek field
@@ -103,12 +111,15 @@ class _RegisterPageState extends State<RegisterPage> {
       },
       textInputAction: TextInputAction.next,
       decoration: InputDecoration(
-        prefixIcon: const Icon(Icons.work),
+        prefixIcon: const Icon(Icons.mail),
         contentPadding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
-        hintText: "E-mail",
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(10),
-        ),
+        hintText: "E-Mail",
+        hintStyle: kHintStyle,
+        fillColor: Colors.grey,
+        enabledBorder: kOutlineBorder,
+        focusedBorder: kOutlineBorder,
+        errorBorder: kErrorBorder,
+        focusedErrorBorder: kErrorBorder,
       ),
     );
     //program tarihi field
@@ -128,12 +139,15 @@ class _RegisterPageState extends State<RegisterPage> {
       },
       textInputAction: TextInputAction.next,
       decoration: InputDecoration(
-        prefixIcon: const Icon(Icons.date_range),
+        prefixIcon: const Icon(Icons.key),
         contentPadding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
         hintText: "Şifreyi tekrarla",
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(10),
-        ),
+        hintStyle: kHintStyle,
+        fillColor: Colors.grey,
+        enabledBorder: kOutlineBorder,
+        focusedBorder: kOutlineBorder,
+        errorBorder: kErrorBorder,
+        focusedErrorBorder: kErrorBorder,
       ),
     );
     //telefon numarası field
@@ -149,24 +163,28 @@ class _RegisterPageState extends State<RegisterPage> {
         prefixIcon: const Icon(Icons.phone),
         contentPadding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
         hintText: "Tel No",
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(10),
-        ),
+        hintStyle: kHintStyle,
+        fillColor: Colors.grey,
+        enabledBorder: kOutlineBorder,
+        focusedBorder: kOutlineBorder,
+        errorBorder: kErrorBorder,
+        focusedErrorBorder: kErrorBorder,
       ),
     );
     //register buton
-    final registerButton = Material(
-      elevation: 5,
-      borderRadius: BorderRadius.circular(30),
-      color: Colors.redAccent,
-      child: MaterialButton(
-        padding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
-        minWidth: MediaQuery.of(context).size.width,
-        onPressed: () {
-          signUp(_emailController.text, _passwordController.text);
+    final registerButton = SizedBox(
+      width: 220,
+      height: 40,
+      child: ElevatedButton(
+        onPressed: () async {
+          try {
+            signUp(_emailController.text, _passwordController.text);
+          } catch (e) {
+            debugPrint(e.toString());
+          }
         },
         child: const Text(
-          "Kayıt Ol",
+          "Kayıt ol",
           textAlign: TextAlign.center,
           style: TextStyle(
             fontSize: 20,
@@ -262,5 +280,4 @@ class _RegisterPageState extends State<RegisterPage> {
 
     Navigator.pushNamed(context, "/");
   }
-  
 }

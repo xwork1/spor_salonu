@@ -10,13 +10,17 @@ class RouteGenarator {
         return MaterialPageRoute(
           builder: (context) => const NavBar(),
         );
-     /* case '/HomeScreen':
+      /* case '/HomeScreen':
         return MaterialPageRoute(
           builder: (context) => const NavBar(),
         );*/
       case '/WorkOut':
         return MaterialPageRoute(
           builder: (context) => const WorkoutScreen(),
+        );
+      case '/Logout':
+        return MaterialPageRoute(
+          builder: (context) => const LoginScreen(),
         );
     }
     return null;

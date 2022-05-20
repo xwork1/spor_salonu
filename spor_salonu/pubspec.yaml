@@ -14,7 +14,7 @@ dependencies:
   salomon_bottom_bar: ^3.1.0
   intl: ^0.17.0
   pedometer: ^3.0.0
-  percent_indicator: ^3.4.0
+  percent_indicator: ^4.2.2
   firebase_auth: ^3.3.5
   fluttertoast: ^8.0.8
   firebase_core: ^1.11.0
@@ -27,6 +27,7 @@ dependencies:
   get_it: ^7.2.0
   easy_localization: ^3.0.0
   video_player: ^1.0.1
+  flutter_svg: ^1.0.3
 dev_dependencies:
   hive_generator: 
   build_runner:
@@ -42,3 +43,5 @@ flutter:
   assets:
     - images/
     - assets/translations/
+    - assets/icons/
+    - assets/images/

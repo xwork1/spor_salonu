@@ -2,6 +2,7 @@
     "title":"Vücut ölçünü ekledin mi?",
     "empty_task_list":"Hadi bir vücut bölgeni ekle",
     "add_task":"Görev nedir?",
-    "remove_task":"Bu görev silindi",
-    "search_not_found":"Aradığınızı bulamadık"
+    "remove_task":"Bu kısım silindi",
+    "search_not_found":"Aradığınızı bulamadık",
+    "mins":"dakika"
 }
