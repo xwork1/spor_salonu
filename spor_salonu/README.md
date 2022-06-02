@@ -2,4 +2,4 @@
 
 Spor Salonu Tanıtım
 
-![Alt text](gorsel/1.png=250x250 "Title")
+![Alt text](gorsel/1.png?raw=" width="200" height="400")
