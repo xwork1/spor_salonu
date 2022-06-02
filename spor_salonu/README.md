@@ -2,4 +2,4 @@
 
 Spor Salonu Tanıtım
 
-<img src="gorsel/1.png" width="250" height="250">
+<img src="gorsel/1.png" width="400" height="500">
