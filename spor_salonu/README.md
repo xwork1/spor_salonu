@@ -2,4 +2,4 @@
 
 Spor Salonu Tanıtım
 
-gorsel\1.png
+![alt](https://gorsel/1.png)
