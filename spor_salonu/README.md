@@ -1,6 +1,5 @@
 # spor_salonu
 
-Spor Salonu Tanıtım
 <img src="gorsel/9.png" width="400" height="500">   <img src="gorsel/10.png" width="400" height="500">
 
 <img src="gorsel/1.png" width="400" height="500">   <img src="gorsel/2.png" width="400" height="500">
